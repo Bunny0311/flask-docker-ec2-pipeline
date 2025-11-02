@@ -1,7 +1,0 @@
-file_converter/
-├── app.py
-├── requirements.txt
-├── templates/
-│   └── index.html
-├── uploads/
-└── outputs/
