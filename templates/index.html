@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Converter - Transform Your Files</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+    </div>
+
+    <div class="container fade-in">
+        <!-- Header with Animation -->
+        <div class="header-section">
+            <div class="icon-wrapper bounce">
+                <span class="file-icon">📁</span>
+            </div>
+            <h1 class="main-title slide-down">Universal File Converter</h1>
+            <p class="subtitle slide-up">Transform your files in seconds with professional quality</p>
+        </div>
+
+        <!-- Conversion Form -->
+        <form method="POST" action="/convert" enctype="multipart/form-data" id="converterForm">
+            
+            <!-- Drag & Drop File Upload Area -->
+            <div class="upload-area" id="uploadArea">
+                <input type="file" name="file" id="fileInput" required hidden>
+                <div class="upload-content">
+                    <div class="upload-icon pulse">📤</div>
+                    <h3>Drag & Drop your file here</h3>
+                    <p>or</p>
+                    <label for="fileInput" class="browse-btn">Browse Files</label>
+                    <p class="file-info">Supports PDF, Word, Excel, PPT, CSV</p>
+                </div>
+                <div class="file-preview" id="filePreview" style="display: none;">
+                    <span class="file-name" id="fileName"></span>
+                    <button type="button" class="remove-file" id="removeFile">✕</button>
+                </div>
+            </div>
+
+            <!-- Conversion Type Selection -->
+            <div class="select-wrapper">
+                <label for="convertType">Choose Conversion Type</label>
+                <select name="convert_type" id="convertType" required>
+                    <option value="">-- Select Conversion Type --</option>
+                    <option value="pdf_to_word">📄 PDF → Word</option>
+                    <option value="word_to_pdf">📝 Word → PDF</option>
+                    <option value="pdf_to_ppt">📄 PDF → PowerPoint</option>
+                    <option value="ppt_to_pdf">📊 PowerPoint → PDF</option>
+                    <option value="excel_to_csv">📗 Excel → CSV</option>
+                    <option value="csv_to_excel">📋 CSV → Excel</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="convert-btn" id="convertBtn">
+                <span class="btn-text">Convert Now</span>
+                <span class="btn-icon">⚡</span>
+            </button>
+        </form>
+
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="spinner"></div>
+            <p class="loading-text">Converting your file...</p>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features-section">
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Lightning Fast</h3>
+            <p>Convert files in seconds</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Secure</h3>
+            <p>Your files are protected</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">✨</div>
+            <h3>High Quality</h3>
+            <p>Professional results</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

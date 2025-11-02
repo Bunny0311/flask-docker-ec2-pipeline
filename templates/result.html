@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion Successful!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+    </div>
+
+    <div class="container result-container fade-in">
+        <!-- Success Animation -->
+        <div class="success-animation">
+            <div class="checkmark-circle">
+                <div class="checkmark draw"></div>
+            </div>
+        </div>
+
+        <!-- Success Message -->
+        <h1 class="success-title">Conversion Successful!</h1>
+        <p class="success-subtitle">Your file has been converted and is ready to download</p>
+
+        <!-- File Info Card -->
+        <div class="file-info-card slide-up">
+            <div class="file-icon-large">📦</div>
+            <div class="file-details">
+                <h3>{{ output_file }}</h3>
+                <p>Ready for download</p>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <a href="{{ url_for('download_file', filename=output_file) }}" class="download-btn">
+                <span class="btn-icon">⬇️</span>
+                <span class="btn-text">Download File</span>
+            </a>
+            <a href="{{ url_for('index') }}" class="secondary-btn">
+                <span class="btn-icon">🔄</span>
+                <span class="btn-text">Convert Another File</span>
+            </a>
+        </div>
+
+        <!-- Confetti Animation -->
+        <div class="confetti-container" id="confettiContainer"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/result.js') }}"></script>
+</body>
+</html>
